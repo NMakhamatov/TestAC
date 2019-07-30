@@ -9,14 +9,13 @@ import java.util.Arrays;
  * Main
  */
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Storage storage = new Storage();
         String[] fileNames = getFileNames();
         Arrays.stream(fileNames)
                 .forEach(
                         it -> new Thread(new RunnableFile(it, storage)).start()
                 );
-        Thread.sleep(1000);
     }
 
     private static String[] getFileNames() {
