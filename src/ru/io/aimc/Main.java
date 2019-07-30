@@ -13,7 +13,6 @@ public class Main {
         Storage storage = new Storage();
         String[] fileNames = getFileNames();
         Arrays.stream(fileNames)
-                .parallel()
                 .forEach(
                         it -> new Thread(new RunnableFile(it, storage)).start()
                 );
